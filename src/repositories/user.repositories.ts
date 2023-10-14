@@ -1,6 +1,5 @@
 import { AppError } from '../configs/error'
-import { User, Pontuation } from '@prisma/client'
-import { Prisma } from '@prisma/client'
+import { User, Pontuation, Prisma } from '@prisma/client/'
 import { IUser, UserLogin } from '../entities/user'
 import Repository from './repository'
 import { IPontuation } from '../entities/pontuation'

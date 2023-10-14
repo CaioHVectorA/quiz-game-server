@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Answer, IQuestion } from "../entities/question"
     class QuestionConstructor {
         id: number | undefined

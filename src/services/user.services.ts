@@ -60,7 +60,7 @@ export class UserServices {
         const withFullPontuation: sorted[] = []
         protecteds.forEach(item => {
             let full = 0
-            item.pontuation.forEach(p => full += p.quantity)
+            item.pontuation.forEach((p: IPontuation) => full += p.quantity)
             withFullPontuation.push({...item, full})
         })
         const sorted = withFullPontuation.sort((item1, item2) => (item1.full < item2.full) ? 1 : (item1.full > item2.full) ? -1 : 0)

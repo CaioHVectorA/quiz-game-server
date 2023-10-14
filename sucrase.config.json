@@ -1,0 +1,4 @@
+{
+    "transforms": ["typescript"],
+    "outDir": "./build"
+}
