@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String       @id @default(uuid())
+  username    String       @unique
+  password    String?
+  pontuations Pontuation[] @relation("pontuacoes")
+  created_at  DateTime     @default(now())
+  updated_at  DateTime     @updatedAt
+  playeds     String       @default("")
+}
+
+model Pontuation {
+  id       Int    @id @default(autoincrement())
+  type     String
+  user     User   @relation("pontuacoes", fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  quantity Int    @default(0)
+  userId   String
+}
+
+model Question {
+  id      Int      @id @default(autoincrement())
+  type    String
+  body    String
+  answers String // JSON
+  date    DateTime @updatedAt
+}
